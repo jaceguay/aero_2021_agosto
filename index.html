@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Rest.Orto.2021_Conf.Agosto</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="lib/leaflet.css" />
+  <script src="lib/leaflet.js"></script>
+  <script src="lib/leaflet-hash.js"></script>
+
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body,
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    .leaflet-default-icon-path {
+      background-image: url(images/marker-icon.png);
+    }
+
+    .leaflet-control-layers-toggle {
+      background-image: url(images/layers.png);
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+      background-image: url(images/layers-2x.png);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+  <script>
+    const map = L.map('map').setView([-26.945470653203508, -48.74501683213484], 16.0);
+    L.tileLayer('tiles/{z}/{x}/{y}.png', {
+      minZoom: 12,
+      maxZoom: 18,
+      tms: false,
+      attribution: 'SEDUH - Itajaí-SC'
+    }).addTo(map);
+
+    const hash = new L.Hash(map);
+  </script>
+</body>
+
+</html>
